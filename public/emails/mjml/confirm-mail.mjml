@@ -1,0 +1,126 @@
+<mjml>
+  <mj-head>
+    <mj-title>EMAIL</mj-title>
+    <mj-preview>EMAIL Preview</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'"></mj-all>
+      <mj-text font-weight="400" font-size="16px" color="#000000" line-height="24px" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"></mj-text>
+    </mj-attributes>
+    <mj-style inline="inline">
+      .body-section { -webkit-box-shadow: 0 25px 50px rgba(8,21,66,.06); -moz-box-shadow:0 25px 50px rgba(8,21,66,.06); box-shadow: 0 25px 50px rgba(8,21,66,.06) }
+    </mj-style>
+    <mj-style inline="inline">
+      .text-link { color: #5e6ebf }
+    </mj-style>
+    <mj-style inline="inline">
+      .footer-link { color: #888888 }
+    </mj-style>
+
+  </mj-head>
+  <mj-body background-color="#EDF2F9" width="600px">
+   <mj-section full-width="full-width" background-color="#212841" padding-bottom="0">
+      <mj-column width="100%">
+       <mj-image src="https://atmos.atomui.com/default/assets/img/logo.png" align="center" width="80px" alt="" padding="15px 0"  href="https://google.com" />
+        <mj-image src="https://gallery.mailchimp.com/ef3bf10c922fc1ccc23d773aa/images/b4f61bc4-f3a0-4cec-bc63-fb3130debb42.jpg" width="600px" alt="" padding="0" href="https://google.com" />
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#28304e">
+      <mj-column width="100%">
+      	<mj-text color="#fff" align="center">Hi Vivek, Welcome Onboard !</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-wrapper padding-top="0" padding-bottom="0" css-class="body-section">
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
+        <mj-column width="100%" padding-bottom="0px">
+
+          <mj-text color="#637381" align="center" font-weight="light" font-size="32px">
+        		<h1 style="line-height:1.3;font-size:32px;font-weight:100;margin-bottom:1px;">
+           Please verfiy your email to activate account
+            </h1>
+          </mj-text>
+
+
+          <mj-button background-color="#0c9" align="center" color="#ffffff" font-size="17px"  href="https://google.com" width="300px">
+            Activate Account
+          </mj-button>
+
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px" padding-top="0">
+        <mj-column width="100%">
+          <mj-divider border-color="#DFE3E8" border-width="1px" />
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding="0 15px 0 15px">
+        <mj-column width="100%">
+          <mj-text color="#212b35" font-weight="bold" font-size="20px" padding-bottom="0">
+            Office Address
+          </mj-text>
+          <mj-text color="#637381" font-size="16px">
+            You can visit following address for confirmation.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
+        <mj-column width="50%">
+          <mj-text color="#212b35" font-size="12px" text-transform="uppercase" font-weight="bold" padding-bottom="0">
+            address
+          </mj-text>
+          <mj-text color="#637381" font-size="14px" padding-top="0">
+            Austin Convention Center
+            <br/> 123 Main Street, 78701
+          </mj-text>
+        </mj-column>
+        <mj-column width="50%">
+          <mj-text color="#212b35" font-size="12px" text-transform="uppercase" font-weight="bold" padding-bottom="0">
+            Hours of Operation
+          </mj-text>
+          <mj-text color="#637381" font-size="14px" padding-top="0">
+            Monday, December 20th: 8:00AM - 5:00PM
+            <br/> Tuesday, December 21st: 8:00AM - 5:00PM
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+    </mj-wrapper>
+
+    <mj-wrapper full-width="full-width">
+      <mj-section>
+        <mj-column width="100%" padding="0">
+          <mj-social font-size="15px" icon-size="30px" mode="horizontal" padding="0" align="center">
+            <mj-social-element name="facebook" href="https://mjml.io/" background-color="#A1A0A0">
+            </mj-social-element>
+            <mj-social-element name="google" href="https://mjml.io/" background-color="#A1A0A0">
+            </mj-social-element>
+            <mj-social-element name="twitter" href="https://mjml.io/" background-color="#A1A0A0">
+            </mj-social-element>
+            <mj-social-element name="linkedin" href="https://mjml.io/" background-color="#A1A0A0">
+            </mj-social-element>
+          </mj-social>
+          <mj-text color="#445566" font-size="11px" font-weight="bold" align="center">
+            View this email in your browser
+          </mj-text>
+          <mj-text color="#445566" font-size="11px" align="center" line-height="16px">
+            You are receiving this email  because you registered with AtomUI. (123 Main Street, Austin, TX 78701) and agreed to receive emails from us regarding new features, events and special offers.
+          </mj-text>
+          <mj-text color="#445566" font-size="11px" align="center" line-height="16px">
+            &copy; AtomUI  Inc., All Rights Reserved.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding-top="0">
+        <mj-group>
+          <mj-column width="100%" padding-right="0">
+            <mj-text color="#445566" font-size="11px" align="center" line-height="16px" font-weight="bold">
+              <a class="footer-link" href="https://www.google.com">Privacy</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<a class="footer-link" href="https://www.google.com">Unsubscribe</a>
+            </mj-text>
+          </mj-column>
+        </mj-group>
+
+      </mj-section>
+    </mj-wrapper>
+
+  </mj-body>
+</mjml>

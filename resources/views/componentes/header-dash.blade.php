@@ -12,7 +12,7 @@
                             <div class="media-body">
                                 <h1>{{$titulo}}</h1>
                                 <p class="opacity-75">
-                                    Bienvenido, username
+                                    Bienvenido, {{ title_case(Auth::user()->nombre) }}
                                 </p>
                             </div>
                         </div>

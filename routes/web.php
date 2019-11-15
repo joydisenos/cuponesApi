@@ -15,8 +15,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@inicio')->name('inicio');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/loginCustom', 'CustomLoginController@login')->name('custom.login');
 
-Route::prefix('ofertas')->group(function (){
+Route::prefix('ofertas')->middleware('auth')->group(function (){
     Route::get('/' , 'OfertasController@ofertas')->name('ofertas.admin');
     Route::get('/crear' , 'OfertasController@crearOferta')->name('ofertas.crear');
     Route::post('/registrar' , 'OfertasController@registrarOferta')->name('ofertas.registrar');
@@ -25,14 +26,14 @@ Route::prefix('ofertas')->group(function (){
     Route::get('/categoria/{cat}' , 'OfertasController@ofertasCategoria')->name('ofertas.admin.categoria');
  });
 
-Route::prefix('usuarios')->group(function (){
+Route::prefix('usuarios')->middleware('auth')->group(function (){
     Route::get('/' , 'UsuariosController@usuarios')->name('usuarios.admin');
  });
 
-Route::prefix('empresas')->group(function (){
+Route::prefix('empresas')->middleware('auth')->group(function (){
     Route::get('/' , 'EmpresasController@empresas')->name('empresas.admin');
  });
 
-Route::prefix('reservas')->group(function (){
+Route::prefix('reservas')->middleware('auth')->group(function (){
     Route::get('/' , 'ReservasController@reservas')->name('reservas.admin');
  });

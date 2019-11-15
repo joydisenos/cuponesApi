@@ -273,7 +273,13 @@
                     <a class="dropdown-item" href="#">  Reset Password</a>
                     <a class="dropdown-item" href="#">  Help </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"> Logout</a>
+                    @guest
+                    @else
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Cerrar sesión</a>
+                    @endguest
                 </div>
             </li>
 
@@ -427,6 +433,13 @@
         </div>
     </div>
 </div>
+
+@guest
+@else
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+@endguest
 
 
 <script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>

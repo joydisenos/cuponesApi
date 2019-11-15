@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="form-group floating-label col-md-12">
                                         <label>Contraseña</label>
-                                        <input type="password" required class="form-control " name="clave" >
+                                        <input type="password" required class="form-control " placeholder="Contraseña" name="clave" >
                                     </div>
                                 </div>
 
@@ -34,7 +34,7 @@
 
                             </form>
                             <p class="text-right p-t-10">
-                                <a href="#!" class="text-underline">Forgot Password?</a>
+                                <a href="#!" class="text-underline">Olvidó su contraseña?</a>
                             </p>
                         </div>
 

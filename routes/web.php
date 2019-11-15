@@ -13,8 +13,8 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@inicio')->name('inicio');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@inicio')->name('inicio')->middleware('auth');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::post('/loginCustom', 'CustomLoginController@login')->name('custom.login');
 
 Route::prefix('ofertas')->middleware('auth')->group(function (){

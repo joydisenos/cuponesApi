@@ -10,6 +10,11 @@ class CustomLoginController extends Controller
 {
     public function login(Request $request)
     {
+    	$validatedData = $request->validate([
+	        'email' => 'required|email',
+	        'clave' => 'required',
+	    ]);
+
     	$email = $request->email;
     	$clave = md5($request->clave);
 

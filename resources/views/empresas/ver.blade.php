@@ -40,7 +40,7 @@
                                             <td>{{ $empresa->email }}</td>
                                             <td>Estado</td>
                                             <td>{{ $empresa->usuario == null ? '' : $empresa->usuario->nombre }}</td>
-                                            <td><a href="#">editar</a></td>
+                                            <td><a href="{{ route('empresas.admin.editar' , $empresa->id) }}">editar</a></td>
                                             <td><input type="checkbox"></td>
                                         </tr>
                                     @endforeach

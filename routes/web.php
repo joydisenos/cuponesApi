@@ -28,12 +28,21 @@ Route::prefix('ofertas')->middleware('auth')->group(function (){
 
 Route::prefix('usuarios')->middleware('auth')->group(function (){
     Route::get('/' , 'UsuariosController@usuarios')->name('usuarios.admin');
+    Route::get('/editar/{id}' , 'UsuariosController@editar')->name('usuarios.admin.editar');
+    Route::post('/actualizar/{id}' , 'UsuariosController@actualizar')->name('usuarios.admin.actualizar');
  });
 
 Route::prefix('empresas')->middleware('auth')->group(function (){
     Route::get('/' , 'EmpresasController@empresas')->name('empresas.admin');
+    Route::get('/editar/{id}' , 'EmpresasController@editar')->name('empresas.admin.editar');
+    Route::post('/actualizar/{id}' , 'EmpresasController@actualizar')->name('empresas.admin.actualizar');
  });
 
 Route::prefix('reservas')->middleware('auth')->group(function (){
     Route::get('/' , 'ReservasController@reservas')->name('reservas.admin');
+ });
+
+Route::prefix('api')->middleware('cors')->group(function (){
+    Route::get('/ofertas' , 'ApiController@ofertas')->name('api.ofertas');
+    Route::get('/categorias' , 'ApiController@categorias')->name('api.categorias');
  });

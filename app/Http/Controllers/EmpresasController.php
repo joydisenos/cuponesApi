@@ -14,4 +14,11 @@ class EmpresasController extends Controller
 
     	return view('empresas.ver' , compact('empresas'));
     }
+
+    public function editar($id)
+    {
+    	$empresa = Empresa::findOrFail($id);
+
+    	return view('empresas.editar' , compact('empresa'));
+    }
 }

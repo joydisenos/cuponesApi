@@ -57,6 +57,14 @@ class Ofertas extends Model
         return $this->orderBy('id' , 'desc')->get();
     }
 
+    public function ofertasActivas($limite)
+    {
+        return $this
+                    ->orderBy('id' , 'desc')
+                    ->limit($limite)
+                    ->get();
+    }
+
     public function categoriaRel()
     {
         return $this->hasMany(RelOfertasCategoria::class , 'id_oferta');

@@ -21,4 +21,14 @@ class EmpresasController extends Controller
 
     	return view('empresas.editar' , compact('empresa'));
     }
+
+    public function actualizar(Request $request , $id)
+    {
+        $data = $request->except('_token');
+
+        $empresasRef = Empresa::findOrFail($id);
+        $empresas = $empresasRef->update($data);
+
+        return redirect()->route('empresas.admin')->with('status' , 'Empresa editada con éxito'); 
+    }
 }

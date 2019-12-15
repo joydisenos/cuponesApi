@@ -41,7 +41,7 @@
                                             <td>{{ $usuario->email }}</td>
                                             <td>{{ date('d-m-y' , $usuario->tiempo) }}</td>
                                             <td>{{ date('d-m-y' , $usuario->lastLogin) }}</td>
-                                            <td>${{ $usuario->credito == null || $usuario->credito == '' ? 0 : $usuario->credito }}</td>
+                                            <td>${{ $usuario->saldo() }}</td>
                                             <td><a href="{{ route('usuarios.admin.editar' , $usuario->id) }}">editar</a></td>
                                             <td><input type="checkbox"></td>
                                         </tr>

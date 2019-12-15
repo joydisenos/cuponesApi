@@ -35,10 +35,12 @@
 	                <input type="password" class="form-control" name="clave" id="inputClave" placeholder="Contraseña">
             </div>
 
+            @if(isset($usuario))
             <div class="form-group">
-            		<label for="inputMonto">Monto a acreditar - Crédito actual ${{ $usuario->credito }}</label>
+            		<label for="inputMonto">Monto a acreditar - Crédito actual ${{ $usuario->saldo() }}</label>
 	                <input type="number" class="form-control" name="credito" value="0" min="0" id="inputMonto" placeholder="Monto a acreditar">
             </div>
+            @endif
 
             <div class="form-group">
             		<label for="inputCupoints">Cupoints a acreditar - Cupoints actual #</label>

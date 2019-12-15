@@ -10,10 +10,16 @@ class ApiController extends Controller
 {
     public function ofertas()
     {
-    	$limite = isset($_GET['limit']) ? $_GET['limit'] : 100;
+    	$limite = isset($_GET['limit']) && $_GET['limit'] != null ? $_GET['limit'] : 100;
+        $categoria = isset($_GET['categoria']) && $_GET['categoria'] != null ? $_GET['categoria'] : null;
 
     	$ofertasRef = new Ofertas();
         $ofertas = $ofertasRef->ofertasActivas($limite);
+        if($categoria != 'null' && $categoria != null)
+        {
+            $ofertas = $ofertas->where('categorias.link' , '=' , $categoria);
+        }
+        $ofertas = $ofertas->get();
 
         return response()->json($ofertas);
     }

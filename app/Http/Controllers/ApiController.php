@@ -20,8 +20,15 @@ class ApiController extends Controller
             $ofertas = $ofertas->where('categorias.link' , '=' , $categoria);
         }
         $ofertas = $ofertas->get();
-
+        //dd($ofertas);
         return response()->json($ofertas);
+    }
+
+    public function getOferta($id)
+    {
+        $oferta = Ofertas::findOrFail($id);
+
+        return response()->json($oferta);
     }
 
     public function categorias()

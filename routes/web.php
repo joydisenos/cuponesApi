@@ -44,5 +44,6 @@ Route::prefix('reservas')->middleware('auth')->group(function (){
 
 Route::prefix('api')->middleware('cors')->group(function (){
     Route::get('/ofertas' , 'ApiController@ofertas')->name('api.ofertas');
+    Route::get('/oferta/{id}' , 'ApiController@getOferta')->name('api.get.oferta');
     Route::get('/categorias' , 'ApiController@categorias')->name('api.categorias');
  });

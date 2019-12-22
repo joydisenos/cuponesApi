@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ofertas;
 use App\Categoria;
+use App\Usuario;
 
 class ApiController extends Controller
 {
@@ -14,12 +15,7 @@ class ApiController extends Controller
         $categoria = isset($_GET['categoria']) && $_GET['categoria'] != null ? $_GET['categoria'] : null;
 
     	$ofertasRef = new Ofertas();
-        $ofertas = $ofertasRef->ofertasActivas($limite);
-        if($categoria != 'null' && $categoria != null)
-        {
-            $ofertas = $ofertas->where('categorias.link' , '=' , $categoria);
-        }
-        $ofertas = $ofertas->get();
+        $ofertas = $ofertasRef->ofertasActivas($limite , $categoria);
         //dd($ofertas);
         return response()->json($ofertas);
     }
@@ -37,5 +33,24 @@ class ApiController extends Controller
     	$categorias = $categoriasRef->categoriasActivas();
 
     	return response()->json($categorias);
+    }
+
+    public function iniciarSesion()
+    {
+        $email = $_GET['email'];
+        $clave = md5($_GET['clave']);
+
+        $usuarioRef = new Usuario();
+        $user = $usuarioRef->login($email , $clave);
+
+        if($user == null)
+        {
+            return response()->json([
+                'respuesta' => 'no autorizado'
+            ]);
+        }else{
+            $user->respuesta = 'autorizado';
+            return response()->json($user);
+        }
     }
 }

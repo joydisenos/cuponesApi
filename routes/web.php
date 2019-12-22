@@ -46,4 +46,5 @@ Route::prefix('api')->middleware('cors')->group(function (){
     Route::get('/ofertas' , 'ApiController@ofertas')->name('api.ofertas');
     Route::get('/oferta/{id}' , 'ApiController@getOferta')->name('api.get.oferta');
     Route::get('/categorias' , 'ApiController@categorias')->name('api.categorias');
+    Route::get('/userlog' , 'ApiController@iniciarSesion')->name('api.login');
  });

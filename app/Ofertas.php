@@ -57,13 +57,20 @@ class Ofertas extends Model
         return $this->orderBy('id' , 'desc')->get();
     }
 
-    public function ofertasActivas($limite)
+    public function ofertasActivas($limite , $categoria)
     {
         $ofertas = Ofertas::selectRaw('ofertas.*')
-                    ->join('rel_ofertas_categorias' , 'rel_ofertas_categorias.id_oferta' , '=' , 'ofertas.id')
-                    ->join('categorias' , 'rel_ofertas_categorias.id_categoria' , '=' , 'categorias.id')
                     ->orderBy('ofertas.id' , 'DESC')
                     ->limit($limite);
+        if($categoria != 'null' && $categoria != null)
+        {
+            $ofertas = $ofertas
+            ->join('rel_ofertas_categorias' , 'rel_ofertas_categorias.id_oferta' , '=' , 'ofertas.id')
+            ->join('categorias' , 'rel_ofertas_categorias.id_categoria' , '=' , 'categorias.id')
+            ->where('categorias.link' , '=' , $categoria);
+        }
+
+        $ofertas = $ofertas->get();
 
         return $ofertas;
     }

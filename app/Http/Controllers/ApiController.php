@@ -53,4 +53,13 @@ class ApiController extends Controller
             return response()->json($user);
         }
     }
+
+    public function consultarUsuario()
+    {
+        $id = $_GET['id'];
+
+        $user = Usuario::findOrFail($id);
+
+        return response()->json($user);
+    }
 }

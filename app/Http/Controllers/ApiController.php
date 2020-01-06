@@ -58,7 +58,8 @@ class ApiController extends Controller
     {
         $id = $_GET['id'];
 
-        $user = Usuario::findOrFail($id);
+        $user = Usuario::find($id);
+        $user->saldo = $user->saldo();
 
         return response()->json($user);
     }

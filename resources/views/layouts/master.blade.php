@@ -190,8 +190,80 @@
                         </ul>
                     </li>
 
+                    
+
                 </ul>
             </li>
+
+            <li class="menu-item">
+                        <a href="#" class=" menu-link">
+                                            <span class="menu-label">
+                                                <span class="menu-name">Códigos</span>
+                                            </span>
+                            <span class="menu-icon">
+                                                <i class="icon-placeholder  ">
+                                                    C
+                                                </i>
+                                            </span>
+                        </a>
+
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class=" menu-link">
+                                            <span class="menu-label">
+                                                <span class="menu-name">Descuentos</span>
+                                            </span>
+                            <span class="menu-icon">
+                                                <i class="icon-placeholder  ">
+                                                    D
+                                                </i>
+                                            </span>
+                        </a>
+
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class=" menu-link">
+                                            <span class="menu-label">
+                                                <span class="menu-name">Códigos</span>
+                                            </span>
+                            <span class="menu-icon">
+                                                <i class="icon-placeholder  ">
+                                                    C
+                                                </i>
+                                            </span>
+                        </a>
+
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class=" menu-link">
+                                            <span class="menu-label">
+                                                <span class="menu-name">Mailing</span>
+                                            </span>
+                            <span class="menu-icon">
+                                                <i class="icon-placeholder  ">
+                                                    M
+                                                </i>
+                                            </span>
+                        </a>
+
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class=" menu-link">
+                                            <span class="menu-label">
+                                                <span class="menu-name">Banners</span>
+                                            </span>
+                            <span class="menu-icon">
+                                                <i class="icon-placeholder  ">
+                                                    B
+                                                </i>
+                                            </span>
+                        </a>
+
+                    </li>
             <!--list item ends-->
         </ul>
         <!-- Menu List Ends-->

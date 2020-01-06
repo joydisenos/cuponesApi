@@ -61,6 +61,8 @@ class Ofertas extends Model
     {
         $ofertas = Ofertas::selectRaw('ofertas.*')
                     ->orderBy('ofertas.id' , 'DESC')
+                    ->where('ofertas.ofecha' , '<=' , time())
+                    ->where('ofertas.cfecha' , '<' , time())
                     ->limit($limite);
         if($categoria != 'null' && $categoria != null)
         {

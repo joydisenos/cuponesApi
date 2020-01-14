@@ -14,11 +14,28 @@ class Usuario extends Authenticatable
     	return $this->all();
     }
 
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class , 'usuario');
+    }
+
+    public function getReservas()
+    {
+        return Reserva::where('usuario' , $this->id)
+                        ->join('ofertas' , 'reservas.oferta' , '=' , 'ofertas.id')
+                        ->get();
+    }
+
     public function login($email , $clave)
     {
-    	return $this->where('email' , $email)
+    	$user = $this->where('email' , $email)
     				->where('clave' , $clave)
     				->first();
+        if($user){
+            $user->saldo = $user->saldo();
+        }
+
+        return $user;
     }
 
     public function saldo()

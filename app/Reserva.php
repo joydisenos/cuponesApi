@@ -10,4 +10,9 @@ class Reserva extends Model
     {
     	return $this->all();
     }
+
+    public function ofertaRel()
+    {
+    	return $this->belongsTo(Ofertas::class , 'oferta');
+    }
 }

@@ -16,6 +16,10 @@ class ApiController extends Controller
 
     	$ofertasRef = new Ofertas();
         $ofertas = $ofertasRef->ofertasActivas($limite , $categoria);
+        foreach ($ofertas as $oferta) {
+            $oferta->fotos = !empty(unserialize($oferta->fotos)) ? 'https://cuponesbuenosaires.com/fotos/n/' . unserialize($oferta->fotos)[0] : '';
+            $oferta->slide = unserialize($oferta->slide);
+        }
         //dd($ofertas);
         return response()->json($ofertas);
     }
@@ -23,8 +27,25 @@ class ApiController extends Controller
     public function getOferta($id)
     {
         $oferta = Ofertas::findOrFail($id);
+        $oferta->fotos = !empty(unserialize($oferta->fotos)) ? 'https://cuponesbuenosaires.com/fotos/n/' . unserialize($oferta->fotos)[0] : '';
+        $slides = unserialize($oferta->slide);
+            foreach ($slides as $key => $slide) {
+                $slides[$key] = 'https://cuponesbuenosaires.com/fotos/n/' . $slide;
+            }
+        $oferta->slide = $slides;
 
         return response()->json($oferta);
+    }
+
+    public function getReservasUser($userId)
+    {
+        $user = Usuario::findOrFail($userId);
+        $reservas = $user->reservas;
+        foreach ($reservas as $reserva) {
+            $reserva->fotos = !empty(unserialize($reserva->ofertaRel->fotos)) ? 'https://cuponesbuenosaires.com/fotos/n/' . unserialize($reserva->ofertaRel->fotos)[0] : '';
+        }
+
+        return json_encode($reservas);
     }
 
     public function categorias()

@@ -1,4 +1,4 @@
-<form action="{{ isset($oferta) ? route('ofertas.actualizar' , $oferta->id ) : route('ofertas.registrar') }}" method="post">
+<form action="{{ isset($oferta) ? route('ofertas.actualizar' , $oferta->id ) : route('ofertas.registrar') }}" method="post" enctype="multipart/form-data">
     @csrf
 
     <div class="card m-b-30">
@@ -75,22 +75,22 @@
                             <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label for="inputofecha">Fecha de Inicio</label>
-                                    <input type="text" class="form-control js-datepicker" id="inputofecha" placeholder="Fecha de Inicio" value="{{ isset($oferta) ? $oferta->ofecha : '' }}" name="ofecha">
+                                    <input type="text" class="form-control js-datepicker" id="inputofecha" placeholder="Fecha de Inicio" value="{{ isset($oferta) ? date('m/d/Y' , $oferta->ofecha) : '' }}" name="ofecha">
                                 </div>
                                 
                                 <div class="form-group col-md-3">
                                     <label for="inputcfecha">Fecha de Finalización</label>
-                                    <input type="text" class="form-control js-datepicker" id="inputcfecha" placeholder="Fecha de Finalización" value="{{ isset($oferta) ? $oferta->cfecha : '' }}" name="cfecha">
+                                    <input type="text" class="form-control js-datepicker" id="inputcfecha" placeholder="Fecha de Finalización" value="{{ isset($oferta) ? date('m/d/Y' , $oferta->cfecha) : '' }}" name="cfecha">
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="inputvencimiento">Fecha de Vencimiento</label>
-                                    <input type="text" class="form-control js-datepicker" id="inputvencimiento" placeholder="Fecha de Vencimiento" value="{{ isset($oferta) ? $oferta->vencimiento : '' }}" name="vencimiento">
+                                    <input type="text" class="form-control js-datepicker" id="inputvencimiento" placeholder="Fecha de Vencimiento" value="{{ isset($oferta) ? date('m/d/Y' , $oferta->vencimiento) : '' }}" name="vencimiento">
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="inputvalida_desde">Válida desde</label>
-                                    <input type="text" class="form-control js-datepicker" id="inputvalida_desde" placeholder="Fecha de Inicio" value="{{ isset($oferta) ? $oferta->valida_desde : '' }}" name="valida_desde">
+                                    <input type="text" class="form-control js-datepicker" id="inputvalida_desde" placeholder="Fecha de Inicio" value="{{ isset($oferta) ? date('m/d/Y' , $oferta->valida_desde) : '' }}" name="valida_desde">
                                 </div>
                                 
                             </div>
@@ -115,28 +115,28 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <div class="tag-input">
-                        <input id="inputHideDiscount" type="checkbox" name="hide_discount" {{ isset($oferta) && $oferta->hide_discount == 1 ? 'checked' : '' }}>
+                        <input id="inputHideDiscount" type="checkbox" name="hide_discount" {{ isset($oferta) && $oferta->hide_discount == 1 ? 'checked' : '' }} value="1">
                         <label for="inputHideDiscount">Ocultar Descuento %</label>
                     </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <div class="tag-input">
-                        <input id="inputhide_pricebefore" type="checkbox" name="hide_pricebefore" {{ isset($oferta) && $oferta->hide_pricebefore == 1 ? 'checked' : '' }}>
+                        <input id="inputhide_pricebefore" type="checkbox" name="hide_pricebefore" {{ isset($oferta) && $oferta->hide_pricebefore == 1 ? 'checked' : '' }} value="1">
                         <label for="inputhide_pricebefore">Ocultar Precio Antes</label>
                     </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <div class="tag-input">
-                        <input id="inputvariable" type="checkbox" name="variable" {{ isset($oferta) && $oferta->variable == 1 ? 'checked' : '' }}>
+                        <input id="inputvariable" type="checkbox" name="variable" {{ isset($oferta) && $oferta->variable == 1 ? 'checked' : '' }} value="1">
                         <label for="inputvariable">El precio es Variable</label>
                     </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <div class="tag-input">
-                        <input id="inputis_2x1" type="checkbox" name="is_2x1" {{ isset($oferta) && $oferta->is_2x1 == 1 ? 'checked' : '' }}>
+                        <input id="inputis_2x1" type="checkbox" name="is_2x1" {{ isset($oferta) && $oferta->is_2x1 == 1 ? 'checked' : '' }} value="1">
                         <label for="inputis_2x1">Esta oferta es un 2x1</label>
                     </div>
                 </div>
@@ -145,28 +145,28 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <div class="tag-input">
-                        <input id="inputdestacada" type="checkbox" name="destacada" {{ isset($oferta) && $oferta->destacada == 1 ? 'checked' : '' }}>
+                        <input id="inputdestacada" type="checkbox" name="destacada" {{ isset($oferta) && $oferta->destacada == 1 ? 'checked' : '' }} value="1">
                         <label for="inputdestacada">Oferta Destacada</label>
                     </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <div class="tag-input">
-                        <input id="inputcupon_completo" type="checkbox" name="cupon_completo" {{ isset($oferta) && $oferta->cupon_completo == 1 ? 'checked' : '' }}>
+                        <input id="inputcupon_completo" type="checkbox" name="cupon_completo" {{ isset($oferta) && $oferta->cupon_completo == 1 ? 'checked' : '' }} value="1">
                         <label for="inputcupon_completo">Cupón completo</label>
                     </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <div class="tag-input">
-                        <input id="inputcargos_adm" type="checkbox" name="cargos_adm" {{ isset($oferta) && $oferta->cargos_adm == 1 ? 'checked' : '' }}>
+                        <input id="inputcargos_adm" type="checkbox" name="cargos_adm" {{ isset($oferta) && $oferta->cargos_adm == 1 ? 'checked' : '' }} value="1">
                         <label for="inputcargos_adm">Cargos Administrativos</label>
                     </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <div class="tag-input">
-                        <input id="inputproveedor" type="checkbox" name="proveedor" {{ isset($oferta) && $oferta->proveedor == 1 ? 'checked' : '' }}>
+                        <input id="inputproveedor" type="checkbox" name="proveedor" {{ isset($oferta) && $oferta->proveedor == 1 ? 'checked' : '' }} value="1">
                         <label for="inputproveedor">Proveedor</label>
                     </div>
                 </div>
@@ -229,7 +229,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <div class="tag-input">
-                        <input id="inputcategoria{{$categoria->id}}" type="checkbox">
+                        <input id="inputcategoria{{$categoria->id}}" name="categoriasSeleccionadas[]" value="{{ $categoria->id }}" type="checkbox" {{ $oferta->categoriaSeleccionada($categoria->id) == 1 ? 'checked' : '' }}>
                         <label for="inputcategoria{{$categoria->id}}">{{ $categoria->nombre }}</label>
                     </div>
                 </div>
@@ -239,7 +239,7 @@
                         @foreach(App\Categoria::categoriasHijas($categoria->id) as $subCategoria)
                            
                                 <div class="tag-input">
-                                    <input id="inputcategoria{{$subCategoria->id}}" type="checkbox">
+                                    <input id="inputcategoria{{$subCategoria->id}}" name="categoriasSeleccionadas[]" value="{{ $subCategoria->id }}" type="checkbox" {{ $oferta->categoriaSeleccionada($subCategoria->id) == 1 ? 'checked' : '' }}>
                                     <label for="inputcategoria{{$subCategoria->id}}">{{ $subCategoria->nombre }}</label>
                                 </div>
                             
@@ -249,6 +249,27 @@
             </div>
             @endforeach
 
+        </div>
+    </div>
+
+    <div class="card m-b-30">
+        <div class="card-header">
+            <h5 class="m-b-0">
+                 Fotos
+            </h5>
+            
+        </div>
+
+        <div class="card-body">
+            <div class="form-group">
+                <label for="inputFotos">Fotos</label>
+                <input type="file" name="fotos" id="inputFotos" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="inputSlide">Slide</label>
+                <input type="file" name="slide" id="inputSlide" class="form-control">
+            </div>
         </div>
     </div>
 
@@ -266,6 +287,11 @@
             <div class="form-group">
                 <label for="inputCaracteristicas">Características</label>
                 <textarea name="caracteristicas" id="inputCaracteristicas" class="tinymce" cols="30" rows="10">{{ isset($oferta) ? $oferta->caracteristicas : '' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="inputCondiciones">Condiciones</label>
+                <textarea name="condiciones" id="inputCondiciones" class="tinymce" cols="30" rows="10">{{ isset($oferta) ? $oferta->condiciones : '' }}</textarea>
             </div>
 
             <div class="form-group">

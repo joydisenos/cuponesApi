@@ -77,4 +77,9 @@ class Empresa extends Model
     {
     	return $this->belongsTo(Usuario::class , 'id_usuario');
     }
+
+    public function codigos()
+    {
+    	return $this->hasMany(Codigo::class , 'empresa_id');
+    }
 }

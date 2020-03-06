@@ -42,6 +42,19 @@ Route::prefix('reservas')->middleware('auth')->group(function (){
     Route::get('/' , 'ReservasController@reservas')->name('reservas.admin');
  });
 
+Route::prefix('codigos')->middleware('auth')->group(function (){
+    Route::get('/' , 'CodigosController@codigos')->name('codigos.admin');
+    Route::get('/cargar' , 'CodigosController@cargar')->name('codigos.cargar.admin');
+ });
+
+Route::prefix('banners')->middleware('auth')->group(function (){
+    Route::get('/' , 'BannersController@banners')->name('banners.admin');
+ });
+
+Route::prefix('mailing')->middleware('auth')->group(function (){
+    Route::get('/' , 'MailingController@mailing')->name('mailing.admin');
+ });
+
 Route::prefix('api')->middleware('cors')->group(function (){
     Route::get('/ofertas' , 'ApiController@ofertas')->name('api.ofertas');
     Route::get('/oferta/{id}' , 'ApiController@getOferta')->name('api.get.oferta');

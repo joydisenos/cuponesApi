@@ -111,6 +111,28 @@
         </div>
     </div>
 
+     <div class="card m-b-30">
+        <div class="card-header">
+            <div class="m-b-0">
+                Logotipo
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <img src="{{ $empresa == null || empty(unserialize($empresa->logo)) ? '' : 'https://cuponesbuenosaires.com/fotos/n/' . unserialize($empresa->logo)[0] }}" alt="">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputClave">Logotipo</label>
+                    <input type="file" name="logo" class="form-control">
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
     <div class="card m-b-30">
         <div class="card-header">
             <div class="m-b-0">
@@ -153,6 +175,149 @@
                     <input type="text" class="form-control" name="instagram" id="inputInstagram" value="{{ isset($empresa) ? $empresa->instagram : ''}}" placeholder="Instagram de empresa">
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="card m-b-30">
+        <div class="card-header">
+            <div class="m-b-0">
+                Localización
+            </div>
+        </div>
+        <div class="card-body">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud1">Latitud 1</label>
+                    <input type="text" class="form-control" name="lat" id="inputLatitud1" value="{{ isset($empresa) ? $empresa->lat : ''}}" placeholder="Latitud 1" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud1">Longitud 1</label>
+                    <input type="text" class="form-control" name="lng" id="inputLongitud1" value="{{ isset($empresa) ? $empresa->lng : ''}}" placeholder="Longitud 1" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud2">Latitud 2</label>
+                    <input type="text" class="form-control" name="lat2" id="inputLatitud2" value="{{ isset($empresa) ? $empresa->lat2 : ''}}" placeholder="Latitud 2" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud2">Longitud 2</label>
+                    <input type="text" class="form-control" name="lng2" id="inputLongitud2" value="{{ isset($empresa) ? $empresa->lng2 : ''}}" placeholder="Longitud 2" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud3">Latitud 3</label>
+                    <input type="text" class="form-control" name="lat3" id="inputLatitud3" value="{{ isset($empresa) ? $empresa->lat3 : ''}}" placeholder="Latitud 3" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud3">Longitud 3</label>
+                    <input type="text" class="form-control" name="lng3" id="inputLongitud3" value="{{ isset($empresa) ? $empresa->lng3 : ''}}" placeholder="Longitud 3" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud3">Latitud 3</label>
+                    <input type="text" class="form-control" name="lat3" id="inputLatitud3" value="{{ isset($empresa) ? $empresa->lat3 : ''}}" placeholder="Latitud 3" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud3">Longitud 3</label>
+                    <input type="text" class="form-control" name="lng3" id="inputLongitud3" value="{{ isset($empresa) ? $empresa->lng3 : ''}}" placeholder="Longitud 3" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud4">Latitud 4</label>
+                    <input type="text" class="form-control" name="lat4" id="inputLatitud4" value="{{ isset($empresa) ? $empresa->lat4 : ''}}" placeholder="Latitud 4" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud4">Longitud 4</label>
+                    <input type="text" class="form-control" name="lng4" id="inputLongitud4" value="{{ isset($empresa) ? $empresa->lng4 : ''}}" placeholder="Longitud 4" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud5">Latitud 5</label>
+                    <input type="text" class="form-control" name="lat5" id="inputLatitud5" value="{{ isset($empresa) ? $empresa->lat5 : ''}}" placeholder="Latitud 5" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud5">Longitud 5</label>
+                    <input type="text" class="form-control" name="lng5" id="inputLongitud5" value="{{ isset($empresa) ? $empresa->lng5 : ''}}" placeholder="Longitud 5" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud6">Latitud 6</label>
+                    <input type="text" class="form-control" name="lat6" id="inputLatitud6" value="{{ isset($empresa) ? $empresa->lat6 : ''}}" placeholder="Latitud 6" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud6">Longitud 6</label>
+                    <input type="text" class="form-control" name="lng6" id="inputLongitud6" value="{{ isset($empresa) ? $empresa->lng6 : ''}}" placeholder="Longitud 6" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud7">Latitud 7</label>
+                    <input type="text" class="form-control" name="lat7" id="inputLatitud7" value="{{ isset($empresa) ? $empresa->lat7 : ''}}" placeholder="Latitud 7" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud7">Longitud 7</label>
+                    <input type="text" class="form-control" name="lng7" id="inputLongitud7" value="{{ isset($empresa) ? $empresa->lng7 : ''}}" placeholder="Longitud 7" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud8">Latitud 8</label>
+                    <input type="text" class="form-control" name="lat8" id="inputLatitud8" value="{{ isset($empresa) ? $empresa->lat8 : ''}}" placeholder="Latitud 8" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud8">Longitud 8</label>
+                    <input type="text" class="form-control" name="lng8" id="inputLongitud8" value="{{ isset($empresa) ? $empresa->lng8 : ''}}" placeholder="Longitud 8" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud9">Latitud 9</label>
+                    <input type="text" class="form-control" name="lat9" id="inputLatitud9" value="{{ isset($empresa) ? $empresa->lat9 : ''}}" placeholder="Latitud 9" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud9">Longitud 9</label>
+                    <input type="text" class="form-control" name="lng9" id="inputLongitud9" value="{{ isset($empresa) ? $empresa->lng9 : ''}}" placeholder="Longitud 9" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputLatitud10">Latitud 10</label>
+                    <input type="text" class="form-control" name="lat10" id="inputLatitud10" value="{{ isset($empresa) ? $empresa->lat10 : ''}}" placeholder="Latitud 10" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputLongitud10">Longitud 10</label>
+                    <input type="text" class="form-control" name="lng10" id="inputLongitud10" value="{{ isset($empresa) ? $empresa->lng10 : ''}}" placeholder="Longitud 10" required>
+                </div>
+            </div>
+
         </div>
     </div>
 

@@ -26,12 +26,22 @@ class Usuario extends Authenticatable
                         ->get();
     }
 
+    public function nuevosUsuarios($month = null , $year = null)
+    {
+        $mes = $month == null ? date('m') : $month;
+        $ano = $year == null ? date('Y') : $year;
+
+        return $this->whereMonth('created_at' , $mes)
+                    ->whereYear('created_at' , $ano)
+                    ->count();
+    }
+
     public function login($email , $clave)
     {
     	$user = $this->where('email' , $email)
     				->where('clave' , $clave)
     				->first();
-        if($user){
+        if($user != null){
             $user->saldo = $user->saldo();
         }
 

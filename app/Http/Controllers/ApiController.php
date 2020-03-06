@@ -19,6 +19,7 @@ class ApiController extends Controller
         foreach ($ofertas as $oferta) {
             $oferta->fotos = !empty(unserialize($oferta->fotos)) ? 'https://cuponesbuenosaires.com/fotos/n/' . unserialize($oferta->fotos)[0] : '';
             $oferta->slide = unserialize($oferta->slide);
+            $oferta->empresaNombre = $oferta->empresaRel->nombre;
         }
         //dd($ofertas);
         return response()->json($ofertas);
@@ -29,10 +30,14 @@ class ApiController extends Controller
         $oferta = Ofertas::findOrFail($id);
         $oferta->fotos = !empty(unserialize($oferta->fotos)) ? 'https://cuponesbuenosaires.com/fotos/n/' . unserialize($oferta->fotos)[0] : '';
         $slides = unserialize($oferta->slide);
-            foreach ($slides as $key => $slide) {
-                $slides[$key] = 'https://cuponesbuenosaires.com/fotos/n/' . $slide;
-            }
+        if($slides != null){
+                    foreach ($slides as $key => $slide) {
+                        $slides[$key] = 'https://cuponesbuenosaires.com/fotos/n/' . $slide;
+                    }
+                }
         $oferta->slide = $slides;
+        $oferta->empresaNombre = $oferta->empresaRel->nombre;
+        $oferta->empresaDireccion = $oferta->empresaRel->direccion;
 
         return response()->json($oferta);
     }
@@ -83,5 +88,10 @@ class ApiController extends Controller
         $user->saldo = $user->saldo();
 
         return response()->json($user);
+    }
+
+    public function reservar()
+    {
+        
     }
 }

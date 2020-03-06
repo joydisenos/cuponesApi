@@ -40,8 +40,8 @@
                                     @foreach($ofertas as $oferta)
                                         <tr>
                                             <td>{{ $oferta->id }}</td>
-                                            <td>{{ date('d/m/Y' , $oferta->ofecha) }}</td>
-                                            <td>{{ date('d/m/Y' , $oferta->cfecha) }}</td>
+                                            <td>{{ date('Y/m/d' , $oferta->ofecha) }}</td>
+                                            <td>{{ date('Y/m/d' , $oferta->cfecha) }}</td>
                                             <td>Estado</td>
                                             <td>Empresa</td>
                                             <td>{{ str_limit($oferta->titulo , 20) }}</td>

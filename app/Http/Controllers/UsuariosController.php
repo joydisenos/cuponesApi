@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuario;
+use App\Credito;
 
 class UsuariosController extends Controller
 {
@@ -28,7 +29,14 @@ class UsuariosController extends Controller
     	$usuario->nombre = $request->nombre;
     	$usuario->apellido = $request->apellido;
     	if($request->has('credito') && $request->credito > 0){
-    		$usuario->credito += $request->credito;
+            $data = [
+                'usuario' => $usuario->id,
+                'credito' => $request->credito,
+                'reserva_carga' => 1,
+                'reserva_pago' => 0,
+            ];
+
+    		Credito::create($data);
     	}
     	if($request->has('clave')){
     		$usuario->clave = md5($request->clave);

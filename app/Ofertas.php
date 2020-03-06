@@ -48,6 +48,7 @@ class Ofertas extends Model
                             'cargos_adm',
                             'proveedor',
                             'costo',
+                            'agotada',
                             'condiciones_automaticas',
                             'variable'
     ];
@@ -55,6 +56,11 @@ class Ofertas extends Model
     public function ofertas()
     {
         return $this->orderBy('id' , 'desc')->get();
+    }
+
+    public function empresaRel()
+    {
+        return $this->belongsTo(Empresa::class , 'empresa');
     }
 
     public function ofertasActivas($limite , $categoria)
@@ -80,6 +86,31 @@ class Ofertas extends Model
     public function categoriaRel()
     {
         return $this->hasMany(RelOfertasCategoria::class , 'id_oferta');
+    }
+
+    public function sincronizarCategorias($categoriasInput)
+    {
+        $categorias = RelOfertasCategoria::where('id_oferta' , $this->id)->get();
+        foreach ($categorias as $categoria) {
+            $categoria->delete();
+        }
+
+        if($categoriasInput != null)
+        {
+            foreach ($categoriasInput as $cat) {
+                RelOfertasCategoria::insert(['id_categoria' => $cat , 'id_oferta' => $this->id ]);
+            }
+        }
+    }
+
+    public function categoriaSeleccionada($categoriaId)
+    {
+        $categoria = RelOfertasCategoria::where('id_categoria' , $categoriaId)
+                            ->where('id_oferta' , $this->id)
+                            ->first();
+        $response = $categoria == null ? 0 : 1;
+
+        return $response;
     }
 
     public function ofertasAdmin($categoria)

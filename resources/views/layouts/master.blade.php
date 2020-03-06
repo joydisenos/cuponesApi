@@ -196,17 +196,49 @@
             </li>
 
             <li class="menu-item">
-                        <a href="#" class=" menu-link">
-                                            <span class="menu-label">
-                                                <span class="menu-name">Códigos</span>
+                        <a href="#" class="open-dropdown menu-link">
+                        <span class="menu-label">
+                                                 <span class="menu-name">Codigos
+                                                    <span class="menu-arrow"></span>
+                                                </span>
                                             </span>
                             <span class="menu-icon">
-                                                <i class="icon-placeholder  ">
-                                                    C
-                                                </i>
+                                                <i class="icon-placeholder mdi mdi-link-variant "></i>
                                             </span>
                         </a>
+                        <!--submenu-->
+                        <ul class="sub-menu">
+                            
+                                <li class="menu-item">
+                                    <a href="{{ route('codigos.cargar.admin') }}" class=" menu-link">
+                                                        <span class="menu-label">
+                                                            <span class="menu-name">Cargar Códigos</span>
+                                                        </span>
+                                        <span class="menu-icon">
+                                                            <i class="icon-placeholder  ">
+                                                            C
+                                                            </i>
+                                                        </span>
+                                    </a>
 
+                                </li>
+
+                                <li class="menu-item">
+                                    <a href="{{ route('codigos.admin') }}" class=" menu-link">
+                                                        <span class="menu-label">
+                                                            <span class="menu-name">Ver Códigos</span>
+                                                        </span>
+                                        <span class="menu-icon">
+                                                            <i class="icon-placeholder  ">
+                                                            C
+                                                            </i>
+                                                        </span>
+                                    </a>
+
+                                </li>
+                           
+
+                        </ul>
                     </li>
 
                     <li class="menu-item">
@@ -223,22 +255,9 @@
 
                     </li>
 
-                    <li class="menu-item">
-                        <a href="#" class=" menu-link">
-                                            <span class="menu-label">
-                                                <span class="menu-name">Códigos</span>
-                                            </span>
-                            <span class="menu-icon">
-                                                <i class="icon-placeholder  ">
-                                                    C
-                                                </i>
-                                            </span>
-                        </a>
-
-                    </li>
 
                     <li class="menu-item">
-                        <a href="#" class=" menu-link">
+                        <a href="{{ route('mailing.admin') }}" class=" menu-link">
                                             <span class="menu-label">
                                                 <span class="menu-name">Mailing</span>
                                             </span>
@@ -252,7 +271,7 @@
                     </li>
 
                     <li class="menu-item">
-                        <a href="#" class=" menu-link">
+                        <a href="{{ route('banners.admin') }}" class=" menu-link">
                                             <span class="menu-label">
                                                 <span class="menu-name">Banners</span>
                                             </span>

@@ -62,4 +62,5 @@ Route::prefix('api')->middleware('cors')->group(function (){
     Route::get('/userlog' , 'ApiController@iniciarSesion')->name('api.login');
     Route::get('/userconsulta' , 'ApiController@consultarUsuario')->name('api.usuario');
     Route::get('/reservas/{user}' , 'ApiController@getReservasUser')->name('api.reservas.usuario');
+    Route::get('/reservar' , 'ApiController@reservar')->name('api.reservar');
  });

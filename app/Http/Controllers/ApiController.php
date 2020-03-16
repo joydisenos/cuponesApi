@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Ofertas;
 use App\Categoria;
 use App\Usuario;
+use App\Reserva;
 
 class ApiController extends Controller
 {
@@ -53,6 +54,43 @@ class ApiController extends Controller
         return json_encode($reservas);
     }
 
+    public function reservar()
+    {
+        $reservas = json_decode($_GET['items']);
+        $tiempo = time();
+        $transactionid = substr(str_shuffle(md5(time() + rand(0, 500) + rand(0, 500))), 0, 20);
+        $guid = md5(time());
+        //dd($reservas[0]);
+        foreach ($reservas as $key => $reserva) {
+            $data = [
+                'oferta' => $reserva->id,
+                'adicional_id' => null,
+                'usuario' => $_GET['user'],
+                'estado' => 3,
+                'descargo' => 0,
+                'uso' => 0,
+                'tiempo' => $tiempo,
+                'ciudad' => 1,
+                'cid' => $guid,
+                'guid' => $guid,
+                'titulo' => $reserva->oferta,
+                'precio' => $reserva->reserva,
+                'codigo' => 'asdqwe',
+                'url' => '',
+                'vencimiento' => time(),
+                'cinemacenter' => '',
+                'fechaPago' => $tiempo
+
+            ];
+
+            Reserva::create($data);
+        }
+
+        $response = ['respuesta' => 'exitosa'];
+
+        return json_encode($response);
+    }
+
     public function categorias()
     {
     	$categoriasRef = new Categoria();
@@ -88,10 +126,5 @@ class ApiController extends Controller
         $user->saldo = $user->saldo();
 
         return response()->json($user);
-    }
-
-    public function reservar()
-    {
-        
     }
 }

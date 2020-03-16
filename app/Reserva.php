@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reserva extends Model
 {
+    protected $fillable = [
+        'oferta', 'adicional_id', 'usuario','estado','descargo','uso','tiempo','ciudad',
+        'cid','guid','titulo','precio','codigo','url','vencimiento','cinemacenter','fechaPago','fechaUsado'
+    ];
+
     public function reservas()
     {
     	return $this->all();
